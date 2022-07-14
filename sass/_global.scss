@@ -1,0 +1,208 @@
+@use 'colors' as c;
+@use 'mixin' as m;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap');
+$font-body:'Open Sans', sans-serif;
+
+// Headings cta nav 
+$font-heading:'Raleway', sans-serif;
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: $font-body;
+  font-size: 1.6rem;
+  max-width: 140rem;
+  margin: 0 auto;
+}
+// Secction main
+.main{
+  margin-block-end: 14rem;
+  &__header{
+    @include m.flex();
+    justify-content: space-between;
+    margin: 1.5rem;
+    .header-img{
+      max-width: 25%;
+    }
+    .nav{
+      @include m.flex($gap:2rem);
+      font-family: $font-heading;
+      font-weight: 500;
+      li{
+        list-style: none;
+        transition: color 0.2s ease-in;
+        a{
+          text-decoration: none;
+          color: c.$DesaturatedBlue;
+
+        }
+
+        &:hover{
+          color: c.$VeryDarkBlue;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__hero{
+    text-align: center;
+    margin-block: 8rem;
+
+    img{
+      width:90%;
+    }
+  }
+}
+// Testimonial
+.testimonial {
+  background-color: c.$LightGrayishBlue;
+  padding-inline:1.25rem;
+  position: relative;
+  margin: 0 auto;
+  &::before{
+    content: '';
+    background-image: url('../assets/images/bg-curve-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 53px;
+    top: -53px;
+    left: 0;
+    position: absolute;
+  }
+  &__img{
+    width: 100%;
+    padding-block: 5rem;
+  }
+  .subtitle{
+    font-family: $font-heading;
+    color: c.$VeryDarkBlue;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  &__article{
+    @include m.flex(2.5rem);
+    flex-direction:column;
+    .card__article{
+      max-width: 40rem;
+      background-color: white;
+      border-radius: 0.25rem;
+      margin: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0px 0px 19px 3px c.$LightGray;
+      -webkit-box-shadow: 0px 0px 19px 3px c.$LightGray;
+      -moz-box-shadow: 0px 0px 19px 3px c.$LightGray;
+      &-t{
+        @include m.flex(1.5rem);
+        justify-content: flex-start;
+        font-size: 1.2rem;
+        margin-block-start: 1.5rem;
+        .img{
+          width: 40px;
+          border-radius: 50%;
+        }
+        p{
+          display: block;
+          width: 100%;
+        }
+     
+      }
+    }
+   
+  }
+ 
+}
+// Acces
+.access{
+  text-align: center;
+  background-color: c.$DesaturatedBlue;
+  color: c.$LightGrayishBlue;
+  .hero__texts{
+    .subtitle-m{
+      font-size: 1.7rem;
+      margin-bottom: 2rem;
+    }
+    .paragraph{
+      color: c.$LightGrayishBlue;
+      font-weight: 300;
+    }
+    .hero__form{
+      width: 85%;
+      input{
+        border: none;
+        margin-bottom: 1rem;
+       
+      }
+    }
+  }
+
+}
+// Footer{
+.footer{
+  background-color: c.$VeryDarkBlue;
+  color: c.$LightGrayishBlue;
+  padding-inline: 2.5rem;
+  padding-block:5rem ;
+  @include m.flex(5rem);
+  flex-direction: column;
+  align-items: flex-start;
+  &__info{
+    svg{
+      margin-bottom: 2rem
+    }
+    .opc{
+      @include m.flex();
+      justify-content:flex-start;
+      margin-top: 1.5rem;
+    }
+  }
+  &__links{
+    @include m.flex(3rem);
+    align-items: flex-start;
+    flex-direction: column;
+    .col{
+      li{
+        list-style: none;
+        margin-block: 1rem;
+        transition: color 0.2s ease-out;
+        cursor: pointer;
+        &:hover{
+        color: c.$BrightBlue;
+        }
+      }
+      
+    }
+  }
+  &__social{
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    i{
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 3rem;
+      cursor: pointer;
+      &:nth-child(2){
+        margin-inline: 1.5rem;
+        transition: background 0.2s ease-in;
+      }
+      &:hover{
+        background-color: c.$BrightBlue;
+        border: 1px solid c.$BrightBlue;
+      }      
+    }
+  }
+}

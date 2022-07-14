@@ -1,0 +1,209 @@
+@use 'mixin' as m;
+$breakpoints: (
+  mobile: 600px,
+  tablet: 1024px,
+  laptop: 1240px,
+  desktop-lg: 1800px
+);
+
+@mixin breakpoint($breakpoint, $direction) {
+
+  // Get the breakpoint value.
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+  @if $direction == min {
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  }
+} 
+
+// MOBILE
+
+.main{
+  @include breakpoint(mobile,min ){
+    margin-block-end: 22rem;
+    img{
+      max-width: 55rem;
+    }
+    &__header{
+      justify-content: space-around;
+    }
+  }
+}
+.testimonial{
+  @include breakpoint(mobile,min){
+    text-align: center;
+    img{
+      max-width: 55rem;
+    }
+    &::before{
+      background-image: url('../assets/images/bg-curve-desktop.svg');
+      height: 114px;
+      top: -110px;
+      width: 100%;
+    }
+    .card__article{
+      text-align: left;
+    }
+  }
+}
+.footer{
+  @include breakpoint(mobile,min ){
+    &__links{
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    &__info{
+      width: 100%;
+      text-align: center;
+      .opc{
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+  }
+}
+
+// TABLET
+
+.main{
+  @include breakpoint(tablet,min ){
+    margin-inline: 5rem;
+    &__header{
+      justify-content: space-between;
+    }
+    &__hero{
+      @include m.flex();
+      flex-direction: row-reverse;
+      text-align: left;
+      img{
+        width: 50%;
+      }
+      .hero__texts{
+        width: 45%;
+        .hero__form{
+          width: 100%;
+          .cta{
+            text-align: center;
+
+          }
+
+        }
+      }
+    }
+  }
+}
+.testimonial{
+  @include breakpoint(tablet,min ){
+    @include m.flex(5rem);
+    flex-direction: row-reverse;
+    text-align: left;
+    padding-inline:9.5rem ;
+  
+    &__img{
+      width: 50%;
+    }
+    &__article{
+      .subtitle{
+        width: 100%;
+        text-align: left;
+        font-size: 2.2rem;
+      }
+    }
+  }
+}
+.access{
+  @include breakpoint(tablet,min ){
+    padding-inline: 8.5rem;
+    .hero__texts{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      column-gap: 4rem;
+      .text{
+        grid-column: 1/2;
+        text-align: left;
+        .subtitle-m{
+          font-size: 2.2rem;
+          
+        }
+
+      }
+      .hero__form{
+        grid-column: 2/3;
+        width: 100%;
+        justify-self: center;
+        input{
+          display: block;
+        }
+        .cta{
+          width: 60%;
+        }
+      }
+    }
+
+  }
+}
+.footer{
+  @include breakpoint(tablet,min ){
+    display: grid;
+    padding-block-start: 8rem;
+    padding-block-end: 5rem;
+    padding-inline: 11rem;
+    grid-template-columns:repeat(3,1fr);
+
+    &__info{
+      text-align: left;
+      grid-row: 1/2;
+      .opc{
+        justify-content: flex-start;
+      }
+    }
+    &__links{
+      margin-top: 8rem;
+    }
+    &__social{
+      margin-top: 8rem;
+    }
+  }
+}
+
+//laptop
+.main{
+  @include breakpoint(laptop,min ){
+    padding-inline: 2rem;
+    &__hero{
+      gap: 5rem;
+      .hero__texts{
+        padding: 0;
+        align-items: flex-start;
+        .hero__form{
+          max-width: 52rem;
+          @include m.flex();
+          input{
+            margin: 0;
+          }
+          .cta{
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+}
+.testimonial{
+  @include breakpoint(laptop,min ){
+    padding-inline: 1rem;
+    gap: 5rem;
+
+    &__article{
+      margin-right: 70px ;
+      align-items: flex-start;
+      .card__article{
+        margin: 0;
+      }
+    }
+  }
+}
