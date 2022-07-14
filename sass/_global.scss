@@ -37,20 +37,15 @@ body{
       @include m.flex($gap:2rem);
       font-family: $font-heading;
       font-weight: 500;
-      li{
-        list-style: none;
-        transition: color 0.2s ease-in;
         a{
           text-decoration: none;
           color: c.$DesaturatedBlue;
 
+          &:hover{
+            color: c.$VeryDarkBlue;
+            text-decoration: underline;
+          }
         }
-
-        &:hover{
-          color: c.$VeryDarkBlue;
-          text-decoration: underline;
-        }
-      }
     }
   }
 

@@ -38,6 +38,7 @@
   font-family: "Raleway", sans-serif;
   padding: 1.25rem;
   width: 100%;
+  border: none;
   border-radius: 0.3rem;
   display: block;
   cursor: pointer;
@@ -135,15 +136,11 @@ body {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
 }
-.main__header .nav li {
-  list-style: none;
-  transition: color 0.2s ease-in;
-}
-.main__header .nav li a {
+.main__header .nav a {
   text-decoration: none;
   color: hsl(238deg, 22%, 44%);
 }
-.main__header .nav li:hover {
+.main__header .nav a:hover {
   color: hsl(243deg, 87%, 12%);
   text-decoration: underline;
 }
